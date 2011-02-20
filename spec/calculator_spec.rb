@@ -8,7 +8,11 @@ module Calculator
         result = calculator.add("")
         result.should equal 0
       end
-      it "accepts 1 number and returns the same number"
+      it "accepts 1 number and returns the same number" do
+        calculator = Calculator.new
+        result = calculator.add("1")
+        result.should equal 1
+      end
       it "accepts 2 numbers and returns the sum"
     end
   end
