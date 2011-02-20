@@ -1,6 +1,6 @@
 module Calculator
   class Parser
-    DEFAULT_DELIMITER = /(,|\n)/
+    DEFAULT_DELIMITER = /,|\n/
 
     def initialize input
       @input = input
@@ -36,7 +36,9 @@ module Calculator
       else
         list = @input[@input.index("\n")+1..-1].split get_delimiters
       end
-      list.map { |number| number.to_i }
+      list.map do |number|
+        number.to_i
+      end
     end
   end
 end
