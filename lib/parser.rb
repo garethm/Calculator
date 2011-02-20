@@ -31,7 +31,11 @@ module Calculator
     end
 
     def numbers
-      list = @input.split get_delimiters
+      if use_default_delimiter?
+        list = @input.split get_delimiters
+      else
+        list = @input[@input.index("\n")+1..-1].split get_delimiters
+      end
       list.map { |number| number.to_i }
     end
   end
