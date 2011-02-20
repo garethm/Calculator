@@ -18,6 +18,10 @@ module Calculator
         result = @calculator.add("1,2")
         result.should equal 3
       end
+      it "handles new lines instead of commas between numbers" do
+        result = @calculator.add("1\n2,3")
+        result.should equal 6
+      end
     end
   end
 end
