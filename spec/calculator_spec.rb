@@ -22,6 +22,10 @@ module Calculator
         result = @calculator.add("1\n2,3")
         result.should equal 6
       end
+      it "allows the delimiters to be specified on the first line" do
+        result = @calculator.add("//;\n1;2")
+        result.should equal 3
+      end
     end
   end
 end
