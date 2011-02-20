@@ -27,9 +27,11 @@ module Calculator
         result.should equal 3
       end
       it "raises an exception for a negative number" do
-        lambda { @calculator.add("-1") }.should raise_error
+        expect { @calculator.add("-1") }.to raise_error NegativeNumberError
       end
-      it "shows all negative numbers in exception message"
+      it "shows all negative numbers in exception message" do
+        expect { @calculator.add("-1,-2") }.to raise_error(NegativeNumberError, /.*-1.*-2.*/)
+      end
     end
   end
 end
