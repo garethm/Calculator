@@ -2,7 +2,7 @@ require 'spec_helper'
 
 module Calculator
   describe Calculator do
-    describe "add" do
+    describe :add do
       before(:each) do
         @calculator = Calculator.new
       end
