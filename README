@@ -1,2 +1,5 @@
 This is an implementation of Roy Osherove's TDD Kata 1 in Ruby.
 See http://www.osherove.com/tdd-kata-1/ for instructions.
+
+Note that some commits will contain code that has failing tests. My intention here is to show all my working as
+I go along.
