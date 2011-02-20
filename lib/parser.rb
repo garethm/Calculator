@@ -5,8 +5,10 @@ module Calculator
     def initialize input
       @input = input
       @delimiters = get_delimiters
-      if not use_default_delimiter?
-        @input = @input[@input.index("\n")+1..-1]
+      if use_default_delimiter?
+        @data = @input
+      else
+        @data = @input[@input.index("\n")+1..-1]
       end
     end
 
@@ -35,7 +37,7 @@ module Calculator
     end
 
     def numbers
-      list = @input.split @delimiters
+      list = @data.split @delimiters
       list.map do |number|
         number.to_i
       end
