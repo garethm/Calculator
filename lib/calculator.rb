@@ -1,3 +1,5 @@
+require 'Parser'
+
 module Calculator
   class NegativeNumberError < StandardError
   end
