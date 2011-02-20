@@ -6,9 +6,7 @@ module Calculator
     end
 
     def sum numbers
-      numbers.reduce(0) do |sum, number|
-        sum + number.to_i
-      end
+      numbers.reduce(0, :+)
     end
   end
 end
