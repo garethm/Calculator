@@ -6,14 +6,17 @@ module Calculator
       not @input.start_with? '//'
     end
 
-    def get_delimiters
-      return DEFAULT_DELIMITER if use_default_delimiter?
-
+    def get_parsed_delimiters
       delimiter_string = @input.split(/\n/)[0][2..-1]
       options = delimiter_string.chars.reduce([]) do |list, item|
         list << Regexp.escape(item)
       end
       Regexp.union(options)
+    end
+
+    def get_delimiters
+      return DEFAULT_DELIMITER if use_default_delimiter?
+      return get_parsed_delimiters
     end
 
     def add input
