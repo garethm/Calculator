@@ -3,8 +3,8 @@ module Calculator
     DEFAULT_DELIMITER = /(,|\n)/
 
     def add input
-      @input = input
-      sum_numbers get_numbers
+      numbers = parse input
+      sum numbers
     end
 
     def use_default_delimiter?
@@ -31,11 +31,12 @@ module Calculator
       get_parsed_delimiters
     end
 
-    def get_numbers
+    def parse input
+      @input = input
       @input.split get_delimiters
     end
 
-    def sum_numbers numbers
+    def sum numbers
       numbers.reduce(0) do |sum, number|
         sum + number.to_i
       end
