@@ -4,6 +4,10 @@ module Calculator
 
     def initialize input
       @input = input
+      @delimiters = get_delimiters
+      if not use_default_delimiter?
+        @input = @input[@input.index("\n")+1..-1]
+      end
     end
 
     def use_default_delimiter?
@@ -31,11 +35,7 @@ module Calculator
     end
 
     def numbers
-      if use_default_delimiter?
-        list = @input.split get_delimiters
-      else
-        list = @input[@input.index("\n")+1..-1].split get_delimiters
-      end
+      list = @input.split @delimiters
       list.map do |number|
         number.to_i
       end
