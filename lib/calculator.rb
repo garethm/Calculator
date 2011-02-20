@@ -2,6 +2,11 @@ module Calculator
   class Calculator
     DEFAULT_DELIMITER = /(,|\n)/
 
+    def add input
+      @input = input
+      sum_numbers get_numbers
+    end
+
     def use_default_delimiter?
       not @input.start_with? '//'
     end
@@ -26,10 +31,12 @@ module Calculator
       get_parsed_delimiters
     end
 
-    def add input
-      @input = input
+    def get_numbers
+      @input.split get_delimiters
+    end
 
-      @input.split(get_delimiters).reduce(0) do |sum, number|
+    def sum_numbers numbers
+      numbers.reduce(0) do |sum, number|
         sum + number.to_i
       end
     end
