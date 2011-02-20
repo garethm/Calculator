@@ -1,39 +1,8 @@
 module Calculator
   class Calculator
-    DEFAULT_DELIMITER = /(,|\n)/
-
     def add input
-      numbers = parse input
-      sum numbers
-    end
-
-    def use_default_delimiter?
-      not @input.start_with? '//'
-    end
-
-    def delimiter_line
-      @input.split(/\n/)[0]
-    end
-
-    def get_delimiter_regexp delimiter_string
-      options = delimiter_string.chars.reduce([]) do |list, item|
-        list << Regexp.escape(item)
-      end
-      Regexp.union(options)
-    end
-
-    def get_parsed_delimiters
-      get_delimiter_regexp delimiter_line[2..-1]
-    end
-
-    def get_delimiters
-      return DEFAULT_DELIMITER if use_default_delimiter?
-      get_parsed_delimiters
-    end
-
-    def parse input
-      @input = input
-      @input.split get_delimiters
+      parser = Parser.new input
+      sum parser.numbers
     end
 
     def sum numbers
