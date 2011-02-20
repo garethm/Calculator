@@ -1,8 +1,9 @@
 module Calculator
   class Calculator
     def add numbers
-      return 0 if numbers == ""
-      return numbers.to_i
+      numbers.split(",").reduce(0) do |sum, number|
+        sum + number.to_i
+      end
     end
   end
 end

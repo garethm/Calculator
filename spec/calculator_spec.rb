@@ -13,7 +13,11 @@ module Calculator
         result = calculator.add("1")
         result.should equal 1
       end
-      it "accepts 2 numbers and returns the sum"
+      it "accepts 2 numbers and returns the sum" do
+        calculator = Calculator.new
+        result = calculator.add("1,2")
+        result.should equal 3
+      end
     end
   end
 end
