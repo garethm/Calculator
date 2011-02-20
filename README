@@ -1,1 +1,2 @@
-This file was created by JetBrains RubyMine 3.1 for binding GitHub repository
+This is an implementation of Roy Osherove's TDD Kata 1 in Ruby.
+See http://www.osherove.com/tdd-kata-1/ for instructions.
