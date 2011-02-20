@@ -26,7 +26,9 @@ module Calculator
         result = @calculator.add("//;\n1;2")
         result.should equal 3
       end
-      it "raises an exception for a negative number"
+      it "raises an exception for a negative number" do
+        lambda { @calculator.add("-1") }.should raise_error
+      end
       it "shows all negative numbers in exception message"
     end
   end
